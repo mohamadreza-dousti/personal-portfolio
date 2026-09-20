@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamadreza Dousti</title>
+    <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <h2>Portfolio</h2>
+        <nav>
+            <a href="#skills">Skills</a>
+            <a href="#languages">Languages</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- hero  -->
+    <section id="hero">
+        <div class="hero-image">
+            <img src="{% static 'images/Hero.webp' %}" alt="Mohamadreza Dousti">
+        </div>
+
+        <div class="hero-content">
+            <h1>Hello, I'm <br>
+                <span>Mohamadreza Dousti</span>
+            </h1>
+            <p>Computer Engineering Student</p>
+        </div>
+        <div class="hero-links">
+            <a href="https://github.com/mohamadreza-dousti" target="_blank">
+                GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/mohamadreza-dousti/" target="_blank">
+                LinkedIn
+            </a>
+        </div>
+    </section>
+
+    <!-- skills  -->
+     <section id="skills">
+        <h2>Skills</h2>
+        <h3>Python</h3>
+        <p><span>Backend & API development</span></p>
+        <h3>POSTMAN</h3>
+        <p><span>Backend & API development</span></p>
+        <h3>MYSQL</h3>
+        <p><span>Database</span></p>
+        <h3>redis</h3>
+        <p><span>Database</span></p>
+     </section>
+
+     <!-- Languages  -->
+      <section id="languages">
+        <h2>Languages</h2>
+        <h3>English</h3>
+        <p><span>70 percents</span></p>
+        <h3>Persian</h3>
+        <p><span>100 percents</span></p>
+      </section>
+
+      <!-- Projects -->
+       <section id="projects">
+        <h2>Projects</h2>
+        <h3>telegram bot</h3>
+        <p>a telegram bot that manage & sale licenses for meta 5 EA bot</p>
+        image
+        demo url
+        <p><span>https://github.com/mohamadreza-dousti/luxalpha-telegram</span></p>
+        <strong>skills:</strong>
+        <p><strong>telegram bot</strong> <strong>request</strong> <strong>redis</strong> <strong>mysql</strong></p>
+
+        <h3>rubika bot</h3>
+        <p>a rubika bot that manage & sale licenses for meta 5 EA bot</p>
+        image
+        demo url
+        <p><span>https://github.com/mohamadreza-dousti/luxalpha-rubika</span></p>
+        <strong>skills:</strong>
+        <p><strong>rubika bot</strong> <strong>request</strong> <strong>redis</strong> <strong>mysql</strong></p>
+
+        <h3>library_management</h3>
+        <p>A desktop library management system built with Python and CustomTkinter.The system allows users to browse available books, reserve books online.</p>
+        image
+        demo url
+        <p><span>https://github.com/mohamadreza-dousti/library_management</span></p>
+        <strong>skills:</strong>
+        <p><strong>sqlite</strong> <strong>CTK</strong> <strong>python</strong>
+       </section>
+       <!-- Education -->
+        <section id="education">
+            <h2>Education</h2>
+            <h3>Bachelor's</h3>
+            <p>at <strong>tabriz university of technology</strong></p>
+            <p>start at <strong><time datetime="">1403/5/28</time></strong></p>
+            <p>end at <strong>So far</strong></p>
+            image
+            content of image
+        </section>
+        <!-- Experience -->
+         <section id="experience">
+            <h2>Experience</h2>
+         </section>
+         <!-- Contact  -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+        <footer>
+            <p>تمامی حقوق محفوظ است © 2026</p>
+        </footer>
+</body>
+</html>
