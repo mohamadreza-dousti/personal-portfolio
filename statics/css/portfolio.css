@@ -1,0 +1,106 @@
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 20px 50px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+}
+
+/* Logo */
+header h2 {
+    color: lightblue;
+    margin: 0;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    gap: 25px;
+    padding: 10px 18px;
+    background-color: #222;
+    border-radius: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: lightblue;
+    transform: translateY(-3px);
+}
+
+/* Hero */
+#hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(50px, 10vw, 150px);
+    padding: 60px 30px;
+    border: solid gray 3px;
+    border-radius: 12px;
+    box-shadow: 2px 8px 15px #222, -4px 10px 10px black;
+}
+
+/* Image */
+.hero-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid gray 6px;
+    padding: 3px;
+}
+
+/* Content */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-content h1 {
+    margin: 0 0 15px;
+    font-size: 36px;
+}
+
+.hero-content h1 span {
+    font-size: 42px;
+}
+
+.hero-content p {
+    margin: 5px 0;
+    font-size: 20px;
+    color: gray;
+}
+
+.hero-links {
+    display: flex;
+    gap: 30px;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.hero-links a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 10px 5px;
+    border-radius: 3px;
+    transition: 0.2s;
+}
+
+.hero-links a:hover {
+    text-decoration: none;
+    color: lightblue;
+    background-color: black;
+    padding: 10px 5px;
+    transform: scale(1.15);
+    border-radius: 3px;
+}
