@@ -11,7 +11,7 @@ header {
 
 /* Logo */
 header h2 {
-    color: lightblue;
+    color: #00d1b2;
     margin: 0;
 }
 
@@ -47,7 +47,7 @@ nav a:hover {
     border: solid gray 3px;
     border-radius: 12px;
     box-shadow: 2px 8px 15px #222, -4px 10px 10px black, 4px 0px 10px black;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 
@@ -74,23 +74,17 @@ nav a:hover {
 }
 
 .hero-content h1 {
-
     margin: 0 0 15px;
-
     font-size: 36px;
 }
 
 .hero-content h1 span {
-
     font-size: 42px;
 }
 
 .hero-content p {
-
     margin: 5px 0;
-
     font-size: 20px;
-
     color: gray;
 }
 
@@ -128,21 +122,44 @@ nav a:hover {
 }
 
 .hero-links a {
-
     text-decoration: none;
-
     color: white;
-
     background-color: black;
-
     padding: 10px 12px;
-
     border-radius: 4px;
 }
 
 .hero-links a:hover {
     transform: scale(1.1);
     color: lightblue;
+}
+
+/* intro */
+#introduction {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#introduction h2 {
+    color: #00d1b2;
+    margin-bottom: 20px;
+}
+
+#introduction h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: #00d1b2;
+    margin: 10px auto;
+}
+
+#introduction p {
+    color: #b2bec3;
+    font-style: italic;
 }
 
 /* Skills */
@@ -156,7 +173,7 @@ nav a:hover {
     text-align: center;
     margin: 0 0 10px;
     font-size: 28px;
-    color: white;
+    color: #00d1b2;
 }
 
 
@@ -197,6 +214,7 @@ nav a:hover {
 .skill:hover {
     background: gray;
     transform: translateY(-3px);
+    color: #00d1b2;
 }
 
 /* Languages */
@@ -205,6 +223,13 @@ nav a:hover {
     margin-top: 30px;
     box-shadow: 5px 5px 10px black, -5px -5px 10px black;
     border-radius: 12px;
+    background-color: #222;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow:
+        2px 8px 15px black,
+        -4px 10px 10px black;
+    backdrop-filter: blur(10px);
 }
 
 #languages h2 {
@@ -212,24 +237,16 @@ nav a:hover {
     padding: 20px 50px;
     text-align: center;
     font-size: 28px;
+    color: #00d1b2;
 }
-
-#languages h2 span {
-    font-size: 32px
-}
-
 
 /* Languages Container */
 
 .languages-container {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 40px;
-
     justify-items: center;
-
     padding: 30px;
 }
 
@@ -248,14 +265,22 @@ nav a:hover {
 .language-circle {
     width: 200px;
     height: 200px;
-
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     position: relative;
+}
+
+.language-circle:hover {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: scale(1.1);
 }
 
 
@@ -263,14 +288,10 @@ nav a:hover {
 
 .language-circle::before {
     content: "";
-
     position: absolute;
-
     width: 160px;
     height: 160px;
-
     border-radius: 50%;
-
     background-color: black;
 }
 
@@ -279,9 +300,7 @@ nav a:hover {
 
 .language-circle span {
     position: relative;
-
     color: white;
-
     font-size: 28px;
     font-weight: bold;
 }
@@ -291,7 +310,7 @@ nav a:hover {
 
 .english {
     background: conic-gradient(
-        lightblue 70%,
+        #00d1b2 70%,
         #333 70%
     );
 }
@@ -301,7 +320,7 @@ nav a:hover {
 
 .persian {
     background: conic-gradient(
-        lightblue 100%,
+        #00d1b2 100%,
         #333 100%
     );
 }
@@ -312,6 +331,6 @@ nav a:hover {
 .language h3 {
     margin-top: 20px;
     margin-bottom: 0;
-
     font-size: 22px;
+    color: white;
 }
