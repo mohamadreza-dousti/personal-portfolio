@@ -16,9 +16,9 @@ class Project(models.Model):
     project_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
-    image = models.CharField(max_length=500, null=True)
-    demo_url = models.CharField(max_length=500, null=True)
-    github_url = models.CharField(max_length=500, null=True)
+    image = models.CharField(max_length=500, null=True, blank=True)
+    demo_url = models.CharField(max_length=500, null=True, blank=True)
+    github_url = models.CharField(max_length=500, null=True, blank=True)
     skills = models.ManyToManyField(
         Skill,
         through="ProjectSkill",
@@ -71,9 +71,9 @@ class Education(models.Model):
     degree = models.CharField(max_length=200)
     university_name = models.CharField(max_length=100)
     start_at = models.DateField()
-    end_at = models.DateField(null=True)
-    image = models.CharField(max_length=500, null=True)
-    content = models.CharField(max_length=500, null=True)
+    end_at = models.DateField(null=True, blank=True)
+    image = models.CharField(max_length=500, null=True, blank=True)
+    content = models.CharField(max_length=500, null=True, blank=True)
 
     class Meta:
         db_table = "education"
@@ -87,7 +87,7 @@ class Experience(models.Model):
     job_title = models.CharField(max_length=100)
     company_name = models.CharField(max_length=200)
     start_at = models.DateField()
-    end_at = models.DateField(null=True)
+    end_at = models.DateField(null=True, blank=True)
 
     class Meta:
         db_table = "experience"
