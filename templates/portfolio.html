@@ -22,28 +22,40 @@
         </nav>
     </header>
 
-    <!-- hero  -->
+<!-- Hero -->
+
     <section id="hero">
         <div class="hero-image">
-            <img src="{% static 'images/Hero.webp' %}" alt="Mohamadreza Dousti">
+            <img src="{% static 'images/Hero.webp' %}"
+                alt="Mohamadreza Dousti">
         </div>
-
         <div class="hero-content">
-            <h1>Hello, I'm <br>
+            <h1>
+                Hello, I'm <br>
                 <span>Mohamadreza Dousti</span>
             </h1>
             <p>Computer Engineering Student</p>
+            <p class="availability">
+               open to freelance projects
+            </p>
         </div>
         <div class="hero-visual">
             <div class="flow-image">
-                <img src="{% static 'images/pic.webp' %}" alt="DEV PIC">
+                <img src="{% static 'images/hi.webp' %}"
+                    alt="DEV PIC">
             </div>
             <div class="hero-links">
-                <a href="https://github.com/mohamadreza-dousti" target="_blank">
+                <a href="https://github.com/mohamadreza-dousti"
+                target="_blank">
                     GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/mohamadreza-dousti/" target="_blank">
+                <a href="https://www.linkedin.com/in/mohamadreza-dousti/"
+                target="_blank">
                     LinkedIn
+                </a>
+                <a href="https://t.me/mohamadrezadousti"
+                target="_blank">
+                    Telegram
                 </a>
             </div>
         </div>
@@ -54,141 +66,230 @@
         <p>I am a Computer Engineering student who is passionate about implementing university theories in the real world.</p>
     </section>
 
-    <!-- skills  -->
-     <section id="skills">
-        <div class="skills-box">
-            <h2><span>Skills & Technologies</span></h2>
-            <div class="skill">
-                <h3>Python</h3>
-                <p><span>Backend development</span></p>
+<!-- Skills -->
+
+<section id="skills">
+    <div class="skills-box">
+        <h2>
+            <span>Skills & Technologies</span>
+        </h2>
+        {% for skill in skills %}
+            <div class="skill {% if forloop.counter > 8 %}hidden-skill{% endif %}">
+                <h3>{{ skill.name }}</h3>
+                <p>
+                    <span>{{ skill.category }}</span>
+                </p>
             </div>
-            <div class="skill">
-                <h3>POSTMAN</h3>
-                <p><span>API development</span></p>
-            </div>
-            <div class="skill">
-                <h3>MYSQL</h3>
-                <p><span>Database</span></p>
-            </div>
-            <div class="skill">
-                <h3>redis</h3>
-                <p><span>Database</span></p>
-            </div>
-            <div class="skill">
-                <h3>C</h3>
-                <p><span>Backend development</span></p>
-            </div>
-            <div class="skill">
-                <h3>CPP</h3>
-                <p><span>Backend development</span></p>
-            </div>
-            <div class="skill">
-                <h3>SQlite</h3>
-                <p><span>Database</span></p>
-            </div>
-            <div class="skill">
-                <h3>AIOGRAM</h3>
-                <p><span>Backend development</span></p>
-            </div>
-            <div class="skill">
-                <h3>Request</h3>
-                <p><span>API development</span></p>
-            </div>
-            <div class="skill">
-                <h3>BASH</h3>
-                <p><span>System</span></p>
-            </div>
-            <div class="skill">
-                <h3>Regex</h3>
-                <p><span>Data analysis</span></p>
-            </div>
-            <div class="skill">
-                <h3>HTML</h3>
-                <p><span>Frontend</span></p>
-            </div>
-            <div class="skill">
-                <h3>CSS</h3>
-                <p><span>Frontend</span></p>
-            </div>
-            <div class="skill">
-                <h3>Django</h3>
-                <p><span>Backend development</span></p>
-            </div>
-        </div>
-     </section>
-    <!-- Languages -->
-    <section id="languages">
-        <h2>Languages</h2>
-        <div class="languages-container">
+        {% endfor %}
+        {% if skills|length > 8 %}
+            <button id="skills-toggle" type="button">
+                <span class="toggle-text">More</span>
+                <span class="arrow">↓</span>
+            </button>
+        {% endif %}
+    </div>
+</section>
+
+
+
+<!-- Languages -->
+<section id="languages">
+    <h2>Languages</h2>
+    <div class="languages-container">
+        {% for language in languages %}
             <div class="language">
-                <div class="language-circle english">
-                    <span>70%</span>
+                <div
+                    class="language-circle"
+                    style="--progress: {{ language.level }}%;"
+                >
+                    <span>{{ language.level }}%</span>
                 </div>
-                <h3>English</h3>
+                <h3>{{ language.name }}</h3>
             </div>
-            <div class="language">
-                <div class="language-circle persian">
-                    <span>100%</span>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        {% for project in projects %}
+            <div class="project-card {% if forloop.counter > 4 %}hidden-project{% endif %}">
+                <div class="project-image">
+                    {% if project.image %}
+                        <img
+                            src="{% static project.image %}"
+                            alt="{{ project.name }}"
+                        >
+                    {% endif %}
                 </div>
-                <h3>Persian</h3>
+                <h3>{{ project.name }}</h3>
+                <p>
+                    {{ project.description }}
+                </p>
+                {% if project.github_url %}
+                    <a
+                        href="{{ project.github_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
+                {% endif %}
+                <div class="project-skills">
+                    {% for skill in project.skills.all %}
+                        <strong>
+                            {{ skill.name }}
+                        </strong>
+
+                    {% endfor %}
+                </div>
             </div>
+        {% endfor %}
+    </div>
+    {% if projects|length > 4 %}
+        <button id="projects-toggle" type="button">
+            <span class="toggle-text">More</span>
+            <span class="arrow">↓</span>
+        </button>
+    {% endif %}
+</section>
+
+
+<section id="education">
+<h2>Education</h2>
+{% for education in educations %}
+    <div class="education-card">
+        <div class="education-content">
+            <h3>{{ education.degree }}</h3>
+            <p>
+                at
+                <strong>{{ education.university_name }}</strong>
+            </p>
+            <p>
+                start at:
+                <strong>
+                    <time>{{ education.start_at }}</time>
+                </strong>
+            </p>
+            <p>
+                end at:
+                <strong>
+                    {% if education.end_at %}
+                        <time>{{ education.end_at }}</time>
+                    {% else %}
+                        So far
+                    {% endif %}
+                </strong>
+            </p>
+            {% if education.content %}
+                <p>
+                    {{ education.content }}
+                </p>
+            {% endif %}
         </div>
+            <div class="education-image">
+
+                <img
+                    src="{% static education.image %}"
+                    alt="{{ education.university_name }}"
+                >
+            </div>
+    </div>
+{% endfor %}
+</section>
+
+    <!-- Experience -->
+        <section id="experience">
+        <h2>Experience</h2>
+        </section>
+    <!-- Contact  -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Enter your name">
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Enter your email">
+
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="Enter subject">
+
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Write your message"></textarea>
+            <button type="submit">Send</button>
+        </form>
     </section>
+    <footer>
+        <p>تمامی حقوق محفوظ است © 2026</p>
+    </footer>
 
-      <!-- Projects -->
-       <section id="projects">
-        <h2>Projects</h2>
-        <h3>telegram bot</h3>
-        <p>a telegram bot that manage & sale licenses for meta 5 EA bot</p>
-        image
-        demo url
-        <p><span>https://github.com/mohamadreza-dousti/luxalpha-telegram</span></p>
-        <strong>skills:</strong>
-        <p><strong>telegram bot</strong> <strong>request</strong> <strong>redis</strong> <strong>mysql</strong></p>
+    <script>
+    const skillsToggle = document.getElementById("skills-toggle");
+    const hiddenSkills = document.querySelectorAll(".hidden-skill");
 
-        <h3>rubika bot</h3>
-        <p>a rubika bot that manage & sale licenses for meta 5 EA bot</p>
-        image
-        demo url
-        <p><span>https://github.com/mohamadreza-dousti/luxalpha-rubika</span></p>
-        <strong>skills:</strong>
-        <p><strong>rubika bot</strong> <strong>request</strong> <strong>redis</strong> <strong>mysql</strong></p>
+    if (skillsToggle) {
+        skillsToggle.addEventListener("click", function () {
 
-        <h3>library_management</h3>
-        <p>A desktop library management system built with Python and CustomTkinter.The system allows users to browse available books, reserve books online.</p>
-        image
-        demo url
-        <p><span>https://github.com/mohamadreza-dousti/library_management</span></p>
-        <strong>skills:</strong>
-        <p><strong>sqlite</strong> <strong>CTK</strong> <strong>python</strong>
-       </section>
-       <!-- Education -->
-        <section id="education">
-            <h2>Education</h2>
-            <h3>Bachelor's</h3>
-            <p>at <strong>tabriz university of technology</strong></p>
-            <p>start at <strong><time datetime="">1403/5/28</time></strong></p>
-            <p>end at <strong>So far</strong></p>
-            image
-            content of image
-        </section>
-        <!-- Experience -->
-         <section id="experience">
-            <h2>Experience</h2>
-         </section>
-         <!-- Contact  -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <form>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="text" placeholder="Subject">
-                <textarea placeholder="Message"></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-        <footer>
-            <p>تمامی حقوق محفوظ است © 2026</p>
-        </footer>
+            const isExpanded =
+                skillsToggle.classList.contains("expanded");
+
+            hiddenSkills.forEach(skill => {
+                skill.style.display = isExpanded ? "none" : "block";
+            });
+
+            const toggleText =
+                skillsToggle.querySelector(".toggle-text");
+
+            const arrow =
+                skillsToggle.querySelector(".arrow");
+
+            if (isExpanded) {
+                toggleText.textContent = "More";
+                arrow.textContent = "↓";
+
+                skillsToggle.classList.remove("expanded");
+            } else {
+                toggleText.textContent = "Less";
+                arrow.textContent = "↑";
+
+                skillsToggle.classList.add("expanded");
+            }
+        });
+    }
+    const projectsToggle = document.getElementById("projects-toggle");
+    const hiddenProjects = document.querySelectorAll(".hidden-project");
+
+    if (projectsToggle) {
+
+        projectsToggle.addEventListener("click", function () {
+
+            const isExpanded = projectsToggle.classList.contains("expanded");
+
+            hiddenProjects.forEach(project => {
+                project.style.display = isExpanded ? "none" : "block";
+            });
+
+            projectsToggle.classList.toggle("expanded");
+
+            const toggleText =
+                projectsToggle.querySelector(".toggle-text");
+
+            const arrow =
+                projectsToggle.querySelector(".arrow");
+
+            if (isExpanded) {
+                toggleText.textContent = "More";
+                arrow.textContent = "↓";
+            } else {
+                toggleText.textContent = "Less";
+                arrow.textContent = "↑";
+            }
+
+        });
+
+    }
+</script>
 </body>
 </html>
