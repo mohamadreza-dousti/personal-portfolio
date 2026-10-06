@@ -56,7 +56,7 @@ The following content will be managed through the admin panel:
 - Django
 
 ### Database
-- MySQL
+- SQLite
 
 ### Version Control
 - Git
@@ -64,11 +64,10 @@ The following content will be managed through the admin panel:
 
 ## 📁 Project Status
 
-🚧 This project is currently under development.
+deployed
 
 ## 👨‍💻 Author
 
 **Mohamadreza Dousti**
 
-Computer Engineering Student & Aspiring Full-Stack Developer
 ****
