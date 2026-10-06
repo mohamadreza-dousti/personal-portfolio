@@ -37,17 +37,21 @@ class ProjectSkill(models.Model):
         on_delete=models.CASCADE,
         db_column="project_id"
     )
-
     skill = models.ForeignKey(
         Skill,
         on_delete=models.CASCADE,
         db_column="skill_id"
     )
 
-    pk = models.CompositePrimaryKey("project", "skill")
 
     class Meta:
         db_table = "project_skills"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["project", "skill"],
+                name="unique_project_skill"
+            )
+        ]
 
 
 class Language(models.Model):
